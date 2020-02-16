@@ -1,6 +1,19 @@
 # Howmobi
+## ブランチ構成
+```
+┏━ Master（リリースブランチ）
+┗━ dev（開発用ブランチ。軽微な修正はこちらでも可。ステージング環境で動作確認する場合にもこちらを使う）
+    ┣━ hotfix/（バグ修正）
+    ┗━ feature/（新機能）
+```
 
-> My excellent Nuxt.js project
+## ブランチ名のルール
+### hotfix
+hotfix/fix-*（修正）
+
+### feature
+feature/add-*（機能追加）
+feature/improve-*（既存処理の改善・変更）
 
 ## Build Setup
 
