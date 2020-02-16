@@ -89,10 +89,12 @@ export default {
     },
     averageRating: {
       type: Number,
+      default: 0,
       required: true,
     },
     reviewCount: {
       type: Number,
+      default: 0,
       required: true,
     },
   },
