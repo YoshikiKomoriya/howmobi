@@ -1,26 +1,16 @@
-/* eslint-disable */
 // Firestore
 import { db } from '~/plugins/firebase'
-
-// Require:
-//  * yarn install
-//  * {project-root}/utils/firebase-functions/firebase-config.json を配置する
-//  * Firestore の Rules を編集する(spots コレクションの Rules を参考に)
 
 // Get all collection
 async function getAll(collectionName) {
   try {
-    const querySnapshot = await db
-      .collection(collectionName)
-      .get()
-    // console.log(querySnapshot)
+    const querySnapshot = await db.collection(collectionName).get()
     const docArray = []
-    querySnapshot.forEach(doc => {
+    querySnapshot.forEach((doc) => {
       docArray.push(doc.data())
     })
     return docArray
   } catch (error) {
-    console.error('Error: ', error)
     return null
   }
 }
@@ -34,7 +24,6 @@ async function getDocData(collectionName, docName) {
     const docData = doc.data()
     return docData
   } catch (error) {
-    console.error('Error: ', error)
     return null
   }
 }
@@ -48,14 +37,12 @@ async function get(collectionName, startAt, limit) {
       .startAt(startAt)
       .limit(limit)
       .get()
-    // console.log(querySnapshot)
     const docArray = []
-    querySnapshot.forEach(doc => {
+    querySnapshot.forEach((doc) => {
       docArray.push(doc.data())
     })
     return docArray
   } catch (error) {
-    console.error('Error: ', error)
     return null
   }
 }
@@ -69,7 +56,6 @@ async function set(collectionName, docName, docObject) {
       .set(docObject)
     return docRef
   } catch (error) {
-    console.error('Error: ', error)
     return null
   }
 }
@@ -84,7 +70,6 @@ async function setToMerge(collectionName, docName, docObject) {
       .set(docObject, { merge: true })
     return docRef
   } catch (error) {
-    console.error('Error: ', error)
     return null
   }
 }
@@ -100,10 +85,8 @@ async function addForReview(collectionName, docName, docObject) {
       .add(docObject)
     return docRef
   } catch (error) {
-    console.error('Error: ', error)
     return null
   }
 }
 
 export { getAll, getDocData, get, set, setToMerge, addForReview }
-/* eslint-enable */
