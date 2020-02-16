@@ -78,7 +78,7 @@
 import reviewForm from '~/components/review_form.vue'
 export default {
   components: {
-    reviewForm
+    reviewForm,
   },
   data: () => ({}),
   computed: {
@@ -87,10 +87,10 @@ export default {
     },
     spot() {
       return this.$store.getters['spot/getSpotByName'](this.$route.params.name)
-    }
+    },
   },
   async fetch({ store, params }) {
     await store.dispatch('spot/fetchSpots')
-  }
+  },
 }
 </script>

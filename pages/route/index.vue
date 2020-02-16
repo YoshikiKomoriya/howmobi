@@ -87,7 +87,7 @@
 import helpButton from '~/components/help_button.vue'
 export default {
   components: {
-    helpButton
+    helpButton,
   },
   data() {
     return {
@@ -105,12 +105,12 @@ export default {
         { label: '竹橋', value: '' },
         { label: '銀座', value: '' },
         { label: '銀座一丁目', value: '' },
-        { label: '駒込', value: '' }
+        { label: '駒込', value: '' },
       ],
       loader: null,
       loading: false,
       dialog: false,
-      fare: []
+      fare: [],
     }
   },
   watch: {
@@ -121,16 +121,16 @@ export default {
       setTimeout(() => (this[l] = false), 1000)
 
       this.loader = null
-    }
+    },
   },
   methods: {
     async getFare() {
       const fare = await this.$store.dispatch(
         'fares/fetchFare',
-        this.location_to
+        this.location_to,
       )
       this.fare = fare
-    }
-  }
+    },
+  },
 }
 </script>

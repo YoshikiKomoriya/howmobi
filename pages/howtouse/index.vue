@@ -54,7 +54,7 @@
 import helpButton from '~/components/help_button.vue'
 export default {
   components: {
-    helpButton
+    helpButton,
   },
   data() {
     return {
@@ -62,29 +62,29 @@ export default {
         {
           text: '切符を買う',
           icon: 'mdi-ticket',
-          href: '/howtouse/ticket?tab=0'
+          href: '/howtouse/ticket?tab=0',
         },
         {
           text: '交通系ICカードを買う',
           icon: 'mdi-credit-card-plus',
-          href: '/howtouse/ticket?tab=1'
+          href: '/howtouse/ticket?tab=1',
         },
         {
           text: '交通系ICカードを使う',
           icon: 'mdi-credit-card-marker',
-          href: '/howtouse/ticket?tab=2'
+          href: '/howtouse/ticket?tab=2',
         },
         {
           text: '乗り越し精算をする',
           icon: 'mdi-map-clock',
-          href: '/howtouse/ticket?tab=3'
-        }
+          href: '/howtouse/ticket?tab=3',
+        },
       ],
       mapHeight: '70vh',
       mapWidth: '100%',
       center: { lat: 35.6811534, lng: 139.7670302 },
-      zoom: 19
+      zoom: 19,
     }
-  }
+  },
 }
 </script>
