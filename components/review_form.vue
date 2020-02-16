@@ -76,25 +76,27 @@ import helpButton from '~/components/help_button.vue'
 
 export default {
   components: {
-    helpButton
+    helpButton,
   },
   props: {
     collection: {
       type: String,
-      required: true
+      required: true,
     },
     document: {
       type: String,
-      required: true
+      required: true,
     },
     averageRating: {
       type: Number,
-      required: true
+      default: 0,
+      required: true,
     },
     reviewCount: {
       type: Number,
-      required: true
-    }
+      default: 0,
+      required: true,
+    },
   },
 
   data() {
@@ -105,7 +107,7 @@ export default {
       name: '',
       description: '',
       images: [],
-      imageRule: [(value) => !value || this.imageValidation(value)]
+      imageRule: [(value) => !value || this.imageValidation(value)],
     }
   },
   methods: {
@@ -152,14 +154,14 @@ export default {
         // 平均点数を計算し直す
         averageRating:
           (this.averageRating * this.reviewCount + this.rating) / totalCount,
-        reviewCount: totalCount
+        reviewCount: totalCount,
       }
       const review = {
         rating: this.rating,
         name: this.name,
         description: this.description,
         images: uploadedImages ? uploadedImages.join(',') : '',
-        createdAt: new Date()
+        createdAt: new Date(),
       }
       // TODO:トランザクションを張る
       // 点数情報の更新
@@ -185,7 +187,7 @@ export default {
           // 読み込んだデータから、MIMEタイプの判定に必要な分（先頭の4要素）をバイナリファイルとして変換する
           const headerOfBinary = new Uint8Array(fileReader.result).subarray(
             0,
-            4
+            4,
           )
 
           // 変換したヘッダーの値を16進数に変換する
@@ -241,7 +243,7 @@ export default {
           }
         }
       })
-    }
-  }
+    },
+  },
 }
 </script>

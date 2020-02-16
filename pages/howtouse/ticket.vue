@@ -424,8 +424,8 @@ export default {
   data() {
     return {
       tab: parseInt(this.$route.query.tab, 10),
-      steps: 1
+      steps: 1,
     }
-  }
+  },
 }
 </script>

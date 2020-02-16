@@ -41,25 +41,25 @@ export default {
       {
         title: 'Myプラン作成',
         src: 'images/tokyo/plan.jpg',
-        href: 'plan'
+        href: 'plan',
       },
       {
         title: '暇つぶしスポット',
         src: 'images/tokyo/spot.jpg',
-        href: 'spot'
+        href: 'spot',
       },
       {
         title: 'エンタメ',
         src: 'images/tokyo/entertainment.jpg',
-        href: 'entertainment'
+        href: 'entertainment',
       },
       {
         title: '駅の使い方',
         src: 'images/tokyo/howtouse.jpg',
-        href: 'howtouse'
-      }
-    ]
-  })
+        href: 'howtouse',
+      },
+    ],
+  }),
 }
 </script>
 

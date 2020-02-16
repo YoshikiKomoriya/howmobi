@@ -35,24 +35,24 @@ export default {
       {
         title: '東京駅',
         src: 'images/station/tokyo.jpg',
-        href: 'tokyo'
+        href: 'tokyo',
       },
       {
         title: '新宿駅',
         src: 'images/station/shinjuku.jpg',
-        href: 'shinjuku'
+        href: 'shinjuku',
       },
       {
         title: '渋谷駅',
         src: 'images/station/shibuya.jpg',
-        href: 'shibuya'
+        href: 'shibuya',
       },
       {
         title: '池袋駅',
         src: 'images/station/ikebukuro.jpg',
-        href: 'ikebukuro'
-      }
-    ]
-  })
+        href: 'ikebukuro',
+      },
+    ],
+  }),
 }
 </script>

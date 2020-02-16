@@ -47,16 +47,16 @@ import { mapState } from 'vuex'
 import helpButton from '~/components/help_button.vue'
 export default {
   components: {
-    helpButton
+    helpButton,
   },
   data: () => ({}),
   computed: {
     ...mapState({
-      spots: (state) => state.spot.spots
-    })
+      spots: (state) => state.spot.spots,
+    }),
   },
   async fetch({ store, params }) {
     await store.dispatch('spot/fetchSpots')
-  }
+  },
 }
 </script>

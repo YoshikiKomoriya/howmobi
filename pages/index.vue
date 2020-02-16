@@ -55,22 +55,22 @@ export default {
       items: [
         {
           src: 'images/carousel_001.jpg',
-          href: 'tokyo'
+          href: 'tokyo',
         },
         {
           src: 'images/carousel_002.jpg',
-          href: 'spot'
-        }
-      ]
+          href: 'spot',
+        },
+      ],
     }
   },
   computed: {
     ...mapState({
-      spots: (state) => state.spot.spots
-    })
+      spots: (state) => state.spot.spots,
+    }),
   },
   async fetch({ store, params }) {
     await store.dispatch('spot/fetchSpots')
-  }
+  },
 }
 </script>
