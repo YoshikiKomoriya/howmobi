@@ -1,4 +1,7 @@
 # Howmobi
+https://howmobi.jp
+
+
 ## ブランチ構成
 ```
 ┏━ master（リリースブランチ）
@@ -30,9 +33,20 @@
 
 マージまでに他のコミットが入った場合は、コミット者が修正内容を追記する形でコメントを更新する。
 
-## firebaseとの接続
+## ローカル開発環境セットアップ
+1. ソースコードをクローンする
+2. ライブラリをインストール
+```
+$ yarn install
+```
 
-1. Firebase認証を行うためには、.envファイルに以下の項目を追加してください(Slackで共有されています)。
+3. 開発用サーバーを起動する
+```
+$ yarn run dev
+```
+
+## firebaseとの接続
+Firebase認証を行うためには、.envファイルに以下の項目を追加してください(Slackで共有されています)。
 
 - FIREBASE_API_KEY
 - FIREBASE_AUTH_DOMAIN
@@ -42,20 +56,7 @@
 - FIREBASE_MESSAGING_SENDER_ID
 - FIREBASE_APP_ID
 
-2. 依存関係のあるライブラリをインストール
-
-```
-$ yarn install
-```
-
-3. 開発用サーバーを起動する
-
-```
-$ yarn run dev
-```
-
 ## デプロイ手順
-
 ### firebase-toolsのインストールと初期設定
 初回以降は不要
 ```
