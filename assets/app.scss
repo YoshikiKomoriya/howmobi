@@ -1,0 +1,92 @@
+// 画面全体にコンテナを拡張するための設定
+html {
+  height:100%;
+  .container {
+    height:100%;
+  }
+}
+
+// 全体のフォント
+body {
+  font-family: 'M PLUS 1p', 'Roboto', 'sans-serif' !important;
+}
+
+// コンテナの背景
+.v-application--wrap {
+  background-color: #f7f7f7;
+}
+.container {
+  background-color: white;
+  filter: drop-shadow(0px 0px 3px #b3b3b3);
+}
+
+// 見出しの装飾
+h2 {
+  border-bottom: solid 3px $accent;
+  position: relative;
+}
+
+h2:after {
+  position: absolute;
+  content: "";
+  display: block;
+  border-bottom: solid 3px $primary;
+  width: 30%;
+}
+
+// 各種ボタンの色
+.v-btn {
+  background-color: $accent !important;
+}
+.v-btn.v-btn--outlined {
+  background-color: #ffffff !important;
+  color: $accent-background !important;
+}
+
+// 特定のカードの色や文字
+// カード上部の色の設定
+.v-card.spot {
+  padding-top: 0.5em;
+  background-color: $accent !important;
+
+  // カード内の文字の色の設定
+  .v-card__text {
+    text-shadow:
+    black 2px 0px,  black -2px 0px,
+    black 0px -2px, black 0px 2px,
+    black 2px 2px , black -2px 2px,
+    black 2px -2px, black -2px -2px,
+    black 1px 2px,  black -1px 2px,
+    black 1px -2px, black -1px -2px,
+    black 2px 1px,  black -2px 1px,
+    black 2px -1px, black -2px -1px;
+  }
+}
+// カード上部の色の設定
+.v-card.station {
+  padding-top: 0.5em;
+  background-color: $accent !important;
+
+  // カード内の文字の色の設定
+  .v-card__text {
+    text-shadow:
+    black 2px 0px,  black -2px 0px,
+    black 0px -2px, black 0px 2px,
+    black 2px 2px , black -2px 2px,
+    black 2px -2px, black -2px -2px,
+    black 1px 2px,  black -1px 2px,
+    black 1px -2px, black -1px -2px,
+    black 2px 1px,  black -2px 1px,
+    black 2px -1px, black -2px -1px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  // 特定のカードの色や文字
+  .v-card.spot:not(.on-hover) {
+    opacity: 0.5;
+  }
+  .v-card.station:not(.on-hover) {
+    opacity: 0.5;
+  }
+}
