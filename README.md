@@ -9,11 +9,11 @@
 
 ## ブランチ名のルール
 ### hotfix
-hotfix/fix-*（修正）
+- hotfix/fix-* （修正）
 
 ### feature
-feature/add-*（機能追加）
-feature/improve-*（既存処理の改善・変更）
+- feature/add-* （機能追加）
+- feature/improve-* （既存処理の改善・変更）
 
 ## Build Setup
 
