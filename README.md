@@ -36,15 +36,15 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## firebaseとの接続
 
-### 1. Firebase認証を行うためには、`plugins/firebase-config.js`に以下の項目を追加してください(Slackで共有されています)。
+### 1. Firebase認証を行うためには、.envファイルに以下の項目を追加してください(Slackで共有されています)。
 
-- apiKey
-- authDomain
-- databaseURL
-- projectId
-- storageBucket
-- messagingSenderId
-- appId
+- FIREBASE_API_KEY
+- FIREBASE_AUTH_DOMAIN
+- FIREBASE_DATABASE_URL
+- FIREBASE_PROJECT_ID
+- FIREBASE_STORAGE_BUCKET
+- FIREBASE_MESSAGING_SENDER_ID
+- FIREBASE_APP_ID
 
 ### 2. 依存関係のあるライブラリをインストール
 
