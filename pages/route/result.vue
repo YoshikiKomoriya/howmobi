@@ -53,8 +53,8 @@
 export default {
   data() {
     return {
-      show: null
+      show: null,
     }
-  }
+  },
 }
 </script>
