@@ -62,7 +62,6 @@ sw.*
 
 # firebase 
 .firebase
-plugins/firebase-config.js
 
 # backup / history files
 *.bak
