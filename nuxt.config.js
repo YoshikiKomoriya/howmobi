@@ -1,7 +1,16 @@
 // dotenvの読み込み
 // export default 内の envプロパティにも同様の値を設定する必要あり
 require('dotenv').config()
-const { APP_TITLE, API_KEY, API_SECRET } = process.env
+const {
+  APP_TITLE,
+  FIREBASE_API_KEY,
+  FIREBASE_AUTH_DOMAIN,
+  FIREBASE_DATABASE_URL,
+  FIREBASE_PROJECT_ID,
+  FIREBASE_STORAGE_BUCKET,
+  FIREBASE_MESSAGING_SENDER_ID,
+  FIREBASE_APP_ID
+} = process.env
 
 // Vuetify.jsの色の設定値の読み込み
 const colors = require('vuetify/es5/util/colors')
@@ -18,8 +27,13 @@ module.exports = {
    */
   env: {
     APP_TITLE,
-    API_KEY,
-    API_SECRET
+    FIREBASE_API_KEY,
+    FIREBASE_AUTH_DOMAIN,
+    FIREBASE_DATABASE_URL,
+    FIREBASE_PROJECT_ID,
+    FIREBASE_STORAGE_BUCKET,
+    FIREBASE_MESSAGING_SENDER_ID,
+    FIREBASE_APP_ID
   },
 
   /*
@@ -144,6 +158,9 @@ module.exports = {
     extend(config, ctx) {
       // 開発環境のみ、保存時にeslintを走らせる
       if (ctx.isDev && ctx.isClient) {
+        config.node = {
+          fs: 'empty'
+        }
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
