@@ -9,7 +9,7 @@
 import AppNavigationDrawer from '~/components/navigation_drawer.vue'
 export default {
   components: {
-    AppNavigationDrawer
-  }
+    AppNavigationDrawer,
+  },
 }
 </script>

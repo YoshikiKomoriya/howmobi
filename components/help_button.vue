@@ -34,14 +34,14 @@ export default {
   props: {
     help: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
-      show: false
+      show: false,
     }
-  }
+  },
 }
 </script>
 

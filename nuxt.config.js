@@ -9,7 +9,7 @@ const {
   FIREBASE_PROJECT_ID,
   FIREBASE_STORAGE_BUCKET,
   FIREBASE_MESSAGING_SENDER_ID,
-  FIREBASE_APP_ID
+  FIREBASE_APP_ID,
 } = process.env
 
 // Vuetify.jsの色の設定値の読み込み
@@ -33,7 +33,7 @@ module.exports = {
     FIREBASE_PROJECT_ID,
     FIREBASE_STORAGE_BUCKET,
     FIREBASE_MESSAGING_SENDER_ID,
-    FIREBASE_APP_ID
+    FIREBASE_APP_ID,
   },
 
   /*
@@ -48,10 +48,10 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.APP_TITLE || ''
-      }
+        content: process.env.APP_TITLE || '',
+      },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
   /*
@@ -71,7 +71,7 @@ module.exports = {
   plugins: [
     '@/plugins/firebase',
     '@/plugins/filter',
-    { src: '~/plugins/vue2-google-maps.js', ssr: false }
+    { src: '~/plugins/vue2-google-maps.js', ssr: false },
   ],
 
   /*
@@ -89,7 +89,7 @@ module.exports = {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
   ],
 
   /*
@@ -100,7 +100,7 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/dotenv',
-    'nuxt-webfontloader'
+    'nuxt-webfontloader',
   ],
 
   /*
@@ -132,7 +132,7 @@ module.exports = {
           info: colors.default.teal.lighten1,
           warning: colors.default.amber.base,
           error: colors.default.deepOrange.accent4,
-          success: colors.default.green.accent3
+          success: colors.default.green.accent3,
         },
         // ダークテーマの色設定
         dark: {
@@ -142,10 +142,10 @@ module.exports = {
           info: colors.default.teal.lighten1,
           warning: colors.default.amber.base,
           error: colors.default.deepOrange.accent4,
-          success: colors.default.green.accent3
-        }
-      }
-    }
+          success: colors.default.green.accent3,
+        },
+      },
+    },
   },
 
   /*
@@ -156,21 +156,26 @@ module.exports = {
      ** webpackの拡張設定
      */
     extend(config, ctx) {
+      /**
+       * dotenvはファイルシステムモジュール（fs）を扱う。しかし、クライアント側でそれを使うことはできない。
+       * SPAモードの場合は、クライアント側でfsを扱うことになる。この場合、ビルドに失敗する。
+       * そこで、fsに'empty'を指定することで、ビルドの際にfsの部分に空ファイルを作成する。
+       */
+      config.node = {
+        fs: 'empty',
+      }
       // 開発環境のみ、保存時にeslintを走らせる
       if (ctx.isDev && ctx.isClient) {
-        config.node = {
-          fs: 'empty'
-        }
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules)/,
           options: {
-            fix: true
-          }
+            fix: true,
+          },
         })
       }
-    }
-  }
+    },
+  },
 }

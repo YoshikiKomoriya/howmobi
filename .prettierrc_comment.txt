@@ -1,0 +1,11 @@
+// JSONファイルにはコメントを記載することができないため、プレーンテキスト形式で記載する
+{
+  "printWidth": 80, // 1行当たりの文字数制限
+  "semi": false,　// 末尾のセミコロンの許可
+  "trailingComma": "all", // 末尾のカンマの扱い。allですべてにカンマを付ける
+  "tabWidth": 2, // タブのサイズ数
+  "useTabs": false, // タブ文字の許可
+  "arrowParens": "always", // アロー関数の括弧を補正する
+  "singleQuote": true, // クォーテーションのシングルクォート化
+  "bracketSpacing": true // オブジェクトの大括弧の間にスペースを入れる
+}

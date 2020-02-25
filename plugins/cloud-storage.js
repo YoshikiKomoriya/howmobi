@@ -1,7 +1,6 @@
-/* eslint-disable */
 // Cloud Strage
 import { storage } from '~/plugins/firebase'
-global.XMLHttpRequest = require("xhr2")
+global.XMLHttpRequest = require('xhr2')
 
 // Get
 async function getUrl(storagePath) {
@@ -12,7 +11,6 @@ async function getUrl(storagePath) {
       .getDownloadURL()
     return url
   } catch (error) {
-    console.error(error)
     return null
   }
 }
@@ -26,10 +24,8 @@ async function upload(storagePath, blob) {
       .put(blob)
     return response
   } catch (error) {
-    console.error(error)
     return null
   }
 }
 
 export { getUrl, upload }
-/* eslint-enable */
