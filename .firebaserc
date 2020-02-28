@@ -1,6 +1,6 @@
 {
   "projects": {
-    "release": "howmobi-japan",
-    "develop": "howmobi-japan"
+    "release": "howmobi-japan-jp",
+    "develop": "howmobi-japan-jp"
   }
 }
