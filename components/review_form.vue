@@ -56,6 +56,7 @@
               @click="
                 dialog = false
                 disabled = true
+                signupByAnonymous()
                 register()
               "
             >
@@ -70,6 +71,9 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+import * as firebase from 'firebase/app'
+import 'firebase/auth'
 import { setToMerge, addForReview } from '~/plugins/firestore.js'
 import { upload } from '~/plugins/cloud-storage.js'
 import helpButton from '~/components/help_button.vue'
@@ -110,7 +114,37 @@ export default {
       imageRule: [(value) => !value || this.imageValidation(value)],
     }
   },
+  // メソッドの設定
   methods: {
+    // login_user.js から、環境設定用のGetter関数を取り出す
+    ...mapGetters('login_user', ['uid']),
+    // login_user.js から、環境設定用のAction関数を取り出す
+    ...mapActions('login_user', [
+      'setDefaultState',
+      'login',
+      'setLoginUser',
+      'logout',
+      'deleteLoginUser',
+    ]),
+
+    // 「送信」ボタンを押した場合のメソッド
+    checkLogin() {
+      // Vuex側の環境設定の初期化関数を呼び出す
+      this.setDefaultState()
+      // ログインユーザーの判別を行う
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          // ユーザーがログインした状態
+          this.setLoginUser(user.uid)
+        } else {
+          // ユーザーがログアウトした状態
+          this.deleteLoginUser()
+        }
+      })
+    },
+    signupByAnonymous() {
+      this.login()
+    },
     // 画像のバリデーション
     imageValidation(value) {
       // 引数の型の判定
