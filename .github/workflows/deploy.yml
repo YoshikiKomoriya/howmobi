@@ -1,0 +1,29 @@
+name: howmobi deploy step
+
+on:
+  push:
+    branches:
+      - master
+
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    name: Deploy
+    needs: build
+    steps:
+     - uses: actions/checkout@master
+     - name: Ready to deploy
+       run: | 
+        npm install -g firebase-tools
+        yarn generate
+     - name: Deploy to Firebase
+       run: firebase deploy --token $FIREBASE_TOKEN
+       env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
