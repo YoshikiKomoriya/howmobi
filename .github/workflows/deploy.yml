@@ -24,6 +24,8 @@ jobs:
         npm install -g firebase-tools
         yarn generate
      - name: Deploy to Firebase
-       run: firebase deploy --token $FIREBASE_TOKEN
+       run: |
+        firebase use release
+        firebase deploy --token $FIREBASE_TOKEN
        env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
