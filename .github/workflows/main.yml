@@ -32,7 +32,7 @@ jobs:
       matrix:
         node-version: [12.x]
 
-    name:Deploy
+    name: Deploy
     needs: build
     steps:
      - name: Checkout Repo
