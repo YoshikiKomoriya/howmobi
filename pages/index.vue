@@ -8,7 +8,7 @@
           ></v-img>
         </h1>
         <h2 class="headline text-center">
-          How to Use it about mobility scheme?
+          How to Use it about mobility ?
         </h2>
       </v-flex>
       <v-flex xs12 md8>
@@ -71,6 +71,29 @@ export default {
   },
   async fetch({ store, params }) {
     await store.dispatch('spot/fetchSpots')
+  },
+  head: {
+    // title() {
+    //   return {
+    //     inner: this.title,
+    //   }
+    meta: [
+      {
+        name: 'description',
+        content: 'はうもび - 交通をいかに活用するか考えるアプリ',
+      },
+      { property: 'og:title', content: 'はうもび' },
+      {
+        property: 'og:description',
+        content: '交通をいかに活用するか考えるアプリ',
+      },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: 'https://howmobi.jp/' },
+      {
+        property: 'og:url',
+        content: 'images/logo/1_Primary_logo_on_transparent_1024.png',
+      },
+    ],
   },
 }
 </script>
