@@ -8,7 +8,7 @@
           ></v-img>
         </h1>
         <h2 class="headline text-center">
-          How to Use it about mobility scheme?
+          How to Use it about mobility?
         </h2>
       </v-flex>
       <v-flex xs12 md8>
