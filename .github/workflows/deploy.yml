@@ -6,6 +6,26 @@ on:
       - master
 
 jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@master
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@master
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Project start
+      run: | 
+       yarn install
+       yarn generate
+       yarn lint
+
   deploy:
 
     runs-on: ubuntu-latest
@@ -14,8 +34,6 @@ jobs:
       matrix:
         node-version: [12.x]
 
-    name: Deploy
-    needs: build
     steps:
      - uses: actions/checkout@master
      - name: Ready to deploy
