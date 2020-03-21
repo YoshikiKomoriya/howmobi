@@ -29,8 +29,7 @@
             :size="40"
             background-color="indigo lighten-3"
             color="indigo"
-          >
-          </v-rating>
+          ></v-rating>
           <v-text-field
             v-model="name"
             name="name"
@@ -50,18 +49,44 @@
             multiple
           ></v-file-input>
           <v-card-actions>
-            <v-btn
-              color="primary"
-              :disabled="disabled"
-              @click="
-                dialog = false
-                disabled = true
-                signupByAnonymous()
-                register()
-              "
-            >
-              送信
-            </v-btn>
+            <template v-if="isLogin === true">
+              <v-btn
+                v-if="isLogin === true"
+                color="primary"
+                :disabled="disabled"
+                @click="
+                  dialog = false
+                  disabled = true
+                  register()
+                "
+                >送信</v-btn
+              >
+            </template>
+            <template v-else>
+              <v-btn
+                v-if="isLogin === false"
+                color="primary"
+                :disabled="disabled"
+                @click="
+                  dialog = false
+                  disabled = true
+                  anonymousLogin()
+                  register()
+                "
+                >新規登録して送信</v-btn
+              >
+              <v-btn
+                v-if="isLogin === false"
+                color="primary"
+                :disabled="disabled"
+                @click="
+                  dialog = false
+                  disabled = true
+                  serviceLogin()
+                "
+                >ログインする</v-btn
+              >
+            </template>
             <v-btn text @click="dialog = false">キャンセル</v-btn>
           </v-card-actions>
         </v-card-text>
@@ -72,7 +97,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import * as firebase from 'firebase/app'
+// import * as firebase from 'firebase/app'
 import 'firebase/auth'
 import { setToMerge, addForReview } from '~/plugins/firestore.js'
 import { upload } from '~/plugins/cloud-storage.js'
@@ -114,35 +139,24 @@ export default {
       imageRule: [(value) => !value || this.imageValidation(value)],
     }
   },
+  computed: {
+    isLogin: {
+      get() {
+        return this.getIsLogin()
+      },
+    },
+  },
   // メソッドの設定
   methods: {
-    // login_user.js から、環境設定用のGetter関数を取り出す
-    ...mapGetters('login_user', ['uid']),
-    // login_user.js から、環境設定用のAction関数を取り出す
-    ...mapActions('login_user', [
-      'setDefaultState',
-      'login',
-      'setLoginUser',
-      'logout',
-      'deleteLoginUser',
-    ]),
-
-    // 「送信」ボタンを押した場合のメソッド
-    checkLogin() {
-      // Vuex側の環境設定の初期化関数を呼び出す
-      this.setDefaultState()
-      // ログインユーザーの判別を行う
-      firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          // ユーザーがログインした状態
-          this.setLoginUser(user.uid)
-        } else {
-          // ユーザーがログアウトした状態
-          this.deleteLoginUser()
-        }
-      })
-    },
-    signupByAnonymous() {
+    // login.js から、環境設定用のGetter関数を取り出す
+    ...mapGetters('login', ['getIsLogin']),
+    // login.js から、環境設定用のAction関数を取り出す
+    ...mapActions('login', ['login', 'logout']),
+    // 「ログイン」を押した場合のメソッド
+    serviceLogin() {},
+    // 「新規登録をして送信」を押した場合のメソッド
+    anonymousLogin() {
+      // 新規登録&ログインを行う
       this.login()
     },
     // 画像のバリデーション
