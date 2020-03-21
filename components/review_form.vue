@@ -29,8 +29,7 @@
             :size="40"
             background-color="indigo lighten-3"
             color="indigo"
-          >
-          </v-rating>
+          ></v-rating>
           <v-text-field
             v-model="name"
             name="name"
@@ -50,17 +49,42 @@
             multiple
           ></v-file-input>
           <v-card-actions>
-            <v-btn
-              color="primary"
-              :disabled="disabled"
-              @click="
-                dialog = false
-                disabled = true
-                register()
-              "
-            >
-              送信
-            </v-btn>
+            <template v-if="isLogin === true">
+              <v-btn
+                color="primary"
+                :disabled="disabled"
+                @click="
+                  dialog = false
+                  disabled = true
+                  register()
+                "
+                >送信</v-btn
+              >
+            </template>
+            <template v-else>
+              <v-btn
+                color="primary"
+                :disabled="disabled"
+                @click="
+                  dialog = false
+                  disabled = true
+                  anonymousLogin()
+                  register()
+                "
+                >新規登録して送信</v-btn
+              >
+              <v-btn
+                v-if="isLogin === false"
+                color="primary"
+                :disabled="disabled"
+                @click="
+                  dialog = false
+                  disabled = true
+                  serviceLogin()
+                "
+                >ログインする</v-btn
+              >
+            </template>
             <v-btn text @click="dialog = false">キャンセル</v-btn>
           </v-card-actions>
         </v-card-text>
@@ -70,6 +94,9 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+// import * as firebase from 'firebase/app'
+import 'firebase/auth'
 import { setToMerge, addForReview } from '~/plugins/firestore.js'
 import { upload } from '~/plugins/cloud-storage.js'
 import helpButton from '~/components/help_button.vue'
@@ -110,7 +137,26 @@ export default {
       imageRule: [(value) => !value || this.imageValidation(value)],
     }
   },
+  computed: {
+    isLogin: {
+      get() {
+        return this.getIsLogin()
+      },
+    },
+  },
+  // メソッドの設定
   methods: {
+    // login.js から、環境設定用のGetter関数を取り出す
+    ...mapGetters('login', ['getIsLogin']),
+    // login.js から、環境設定用のAction関数を取り出す
+    ...mapActions('login', ['login', 'logout']),
+    // 「ログイン」を押した場合のメソッド
+    serviceLogin() {},
+    // 「新規登録をして送信」を押した場合のメソッド
+    anonymousLogin() {
+      // 新規登録&ログインを行う
+      this.login()
+    },
     // 画像のバリデーション
     imageValidation(value) {
       // 引数の型の判定
