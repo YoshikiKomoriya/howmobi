@@ -51,7 +51,6 @@
           <v-card-actions>
             <template v-if="isLogin === true">
               <v-btn
-                v-if="isLogin === true"
                 color="primary"
                 :disabled="disabled"
                 @click="
@@ -64,7 +63,6 @@
             </template>
             <template v-else>
               <v-btn
-                v-if="isLogin === false"
                 color="primary"
                 :disabled="disabled"
                 @click="
