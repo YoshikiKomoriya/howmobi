@@ -39,7 +39,9 @@ jobs:
     steps:
      - uses: actions/checkout@master
      - name: Deploy to Firebase
+     - name: Ready to deploy
        uses: w9jds/firebase-action@master
+     - name: Deploy to Firebase
        run: |
         firebase use release
         firebase deploy --token $FIREBASE_TOKEN
