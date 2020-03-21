@@ -10,6 +10,7 @@ const {
   FIREBASE_STORAGE_BUCKET,
   FIREBASE_MESSAGING_SENDER_ID,
   FIREBASE_APP_ID,
+  GOOGLE_API_KEY,
 } = process.env
 
 // Vuetify.jsの色の設定値の読み込み
@@ -34,6 +35,7 @@ module.exports = {
     FIREBASE_STORAGE_BUCKET,
     FIREBASE_MESSAGING_SENDER_ID,
     FIREBASE_APP_ID,
+    GOOGLE_API_KEY,
   },
 
   /*
