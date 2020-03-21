@@ -24,6 +24,7 @@
     "nuxt": "^2.0.0",
     "nuxt-webfontloader": "^1.1.0",
     "serialize-javascript": "^2.1.2",
+    "vue-head": "^2.2.0",
     "vue2-google-maps": "^0.10.7",
     "xhr2": "^0.2.0"
   },
