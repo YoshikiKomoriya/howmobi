@@ -38,11 +38,10 @@ jobs:
     needs: build
     steps:
      - uses: actions/checkout@master
-     - name: Ready to deploy
-       uses: w9jds/firebase-action@master
      - name: Deploy to Firebase
-       run: |
-        firebase use release
-        firebase deploy --token $FIREBASE_TOKEN
+       uses: w9jds/firebase-action@master
+       with:
+         args: use release
+         args: deploy --only hosting
        env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
