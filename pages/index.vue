@@ -73,11 +73,13 @@ export default {
     await store.dispatch('spot/fetchSpots')
   },
   head: {
-    // title() {
-    //   return {
-    //     inner: this.title,
-    //   }
-    meta: [
+    title() {
+      return {
+        inner: this.title,
+      }
+    },
+    meta() {
+      return [
       {
         name: 'description',
         content: 'はうもび - 交通をいかに活用するか考えるアプリ',
@@ -85,15 +87,15 @@ export default {
       { property: 'og:title', content: 'はうもび' },
       {
         property: 'og:description',
-        content: '交通をいかに活用するか考えるアプリ',
+        content: '公共交通をいかに活用するか考えるアプリ',
       },
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: 'https://howmobi.jp/' },
       {
-        property: 'og:url',
+        property: 'og:image',
         content: 'images/logo/1_Primary_logo_on_transparent_1024.png',
       },
-    ],
-  },
-}
+    ]
+    },
+  }
 </script>
