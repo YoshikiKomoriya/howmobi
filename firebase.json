@@ -1,6 +1,6 @@
 {
     "hosting": {
-      "public": "dist/howmobi",
+      "public": "dist",
       "ignore": [
         "firebase.json",
         "**/.*",
