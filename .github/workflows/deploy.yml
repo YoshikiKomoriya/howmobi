@@ -38,8 +38,6 @@ jobs:
     needs: build
     steps:
      - uses: actions/checkout@master
-     - name: Ready to deploy
-       run: yarn generate
      - name: Deploy to Firebase
        run: |
         firebase use release
