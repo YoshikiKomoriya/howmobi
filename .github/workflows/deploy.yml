@@ -34,6 +34,8 @@ jobs:
       matrix:
         node-version: [12.x]
 
+    name: Deploy
+    needs: build
     steps:
      - uses: actions/checkout@master
      - name: Ready to deploy
