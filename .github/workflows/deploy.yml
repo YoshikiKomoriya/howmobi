@@ -1,0 +1,30 @@
+name: howmobi deploy step
+
+on:
+  push:
+    branches:
+      - master
+
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    name: Deploy
+    needs: build
+    steps:
+     - uses: actions/checkout@master
+       with:
+         name: dist
+     - name: Deploy to Firebase
+       uses: w9jds/firebase-action@master
+       with:
+         args: deploy
+       env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        PROJECT_ID: release
