@@ -80,22 +80,23 @@ export default {
     },
     meta() {
       return [
-      {
-        name: 'description',
-        content: 'はうもび - 交通をいかに活用するか考えるアプリ',
-      },
-      { property: 'og:title', content: 'はうもび' },
-      {
-        property: 'og:description',
-        content: '公共交通をいかに活用するか考えるアプリ',
-      },
-      { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://howmobi.jp/' },
-      {
-        property: 'og:image',
-        content: 'images/logo/1_Primary_logo_on_transparent_1024.png',
-      },
-    ]
+        {
+          name: 'description',
+          content: 'はうもび - 交通をいかに活用するか考えるアプリ',
+        },
+        { property: 'og:title', content: 'はうもび' },
+        {
+          property: 'og:description',
+          content: '公共交通をいかに活用するか考えるアプリ',
+        },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: 'https://howmobi.jp/' },
+        {
+          property: 'og:image',
+          content: 'images/logo/1_Primary_logo_on_transparent_1024.png',
+        },
+      ]
     },
-  }
+  },
+}
 </script>
