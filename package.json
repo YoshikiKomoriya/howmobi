@@ -23,7 +23,7 @@
     "express-session": "^1.17.0",
     "firebase": "^7.2.2",
     "helmet": "^3.21.3",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "nuxt": "^2.0.0",
     "nuxt-webfontloader": "^1.1.0",
     "serialize-javascript": "^2.1.2",
